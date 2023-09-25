@@ -87,6 +87,7 @@ $(document).ready(function () {
       </div>
 
 */
+// dynamically add class past, present, future based on DaysJS API
 function saveBtn () {
   $(".saveBtn").on("click", function() {
     var timeBlock = $(this).
