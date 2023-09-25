@@ -22,21 +22,30 @@ dayjs({ year :2010, month :3, day :5, hour :15, minute :10, second :3, milliseco
 dayjs({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, milliseconds:123});
 
  */
+/*Things to get a handle on
+ID
+1)currentDay
+2)
+ */
+/*
+CLASSES
+1)
 
-dayjs.extent(objectSupport);
+*/
+$(document).ready(function () {
 
-var day = {
+  //get a handle
 
-}
-
-var time = {
-
-}
-$(function () {
   // TODO: Add a listener for click events on the save button. This code should
+ $(".saveBtn").on("click", function() {
+
+ });
   // use the id in the containing time-block as a key to save the user input in
+  
   // local storage. HINT: What does `this` reference in the click listener
+  
   // function? How can DOM traversal be used to get the "hour-x" id of the
+  
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
