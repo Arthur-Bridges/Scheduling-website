@@ -41,7 +41,7 @@ DOM TRAVERSAL(Maybe?)
 5) .nextUntil()
 6) .next()
 7) .filter() **filter then compare?**
-8) .each()
+8) .each() 
 9) .parents()
 
 */
@@ -87,15 +87,35 @@ $(document).ready(function () {
       </div>
 
 */
+// *****TODO : don't forget to remove the past, present, future classes within HTML **********
 // dynamically add class past, present, future based on DaysJS API
+//get a handle
+var currentTime = dayjs().hour();
+var time;
 function saveBtn () {
   $(".saveBtn").on("click", function() {
     var timeBlock = $(this).
-    localStorage.setItem(, );
+    var userInfo =  
+    localStorage.setItem(timeBlock, userInfo);
   });
 }
+function setClass () {
 
+  if ( time < currentTime){
+    $(this).addClass("past");
+  }
+  if ( time === currentTime){
+    $(this).addClass("present");
+  }
+  else {
+    $(this).addClass("future");
+  }
+}
 
+function addClasses () {
+  
+
+}
 
 function displayDate () {
   // TODO: Add code to display the current date in the header of the page.
