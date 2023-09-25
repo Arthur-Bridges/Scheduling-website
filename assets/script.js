@@ -32,18 +32,28 @@ CLASSES
 1)
 
 */
+/*
+DOM TRAVERSAL(Maybe?)
+1) .children()
+2) .add()
+3) .contents() **get the contents then filter?**
+4).closest() **Look up syntax**
+5) .nextUntil()
+6) .next()
+7) .filter() **filter then compare?**
+8) .each()
+9) .parents()
+
+*/
+
+//Create functions then call it within the DOM.
 $(document).ready(function () {
 
-  //get a handle
-
   // TODO: Add a listener for click events on the save button. This code should
- $(".saveBtn").on("click", function() {
-
- });
   // use the id in the containing time-block as a key to save the user input in
   
   // local storage. HINT: What does `this` reference in the click listener
-  
+  //---->more research on the 'this' keyword.
   // function? How can DOM traversal be used to get the "hour-x" id of the
   
   // time-block containing the button that was clicked? How might the id be
@@ -61,3 +71,21 @@ $(document).ready(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+function saveBtn () {
+  $(".saveBtn").on("click", function() {
+    var timeBlock = $(this).
+    localStorage.setItem(, );
+  });
+}
+
+
+
+function displayDate () {
+  // TODO: Add code to display the current date in the header of the page.
+ var presentDate = dayjs().
+}
+
+function userData () {
+
+}
