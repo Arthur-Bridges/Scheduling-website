@@ -1,3 +1,4 @@
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -43,6 +44,7 @@ DOM TRAVERSAL(Maybe?)
 7) .filter() **filter then compare?**
 8) .each() 
 9) .parents()
+10) .find()
 
 */
 
@@ -72,9 +74,10 @@ $(document).ready(function () {
   // a function: TODO: Add code to display the current date in the header of the page.
   //---------------------------------------
   //WHEN FINISH CALL ALL FUNCTIONS HERE
-  // saveBtn();
-  // displayDate();
-  // getUserData();
+  saveBtn();
+  addClasses();
+  displayDate();
+  getUserData();
 });
 /*
   **HTML CONTAINER**
@@ -91,16 +94,19 @@ $(document).ready(function () {
 // dynamically add class past, present, future based on DaysJS API
 //get a handle
 var currentTime = dayjs().hour();
+var currentDate = dayjs().format('DD/MM/YYYY');
+var description = $(".description");
+var timeId = $(this).attr("id");
 var time;
+
 function saveBtn () {
   $(".saveBtn").on("click", function() {
-    var timeBlock = $(this).
-    var userInfo =  
+    var timeBlock = 
+    var userInfo =  description.val();
     localStorage.setItem(timeBlock, userInfo);
   });
 }
 function setClass () {
-
   if ( time < currentTime){
     $(this).addClass("past");
   }
@@ -113,15 +119,16 @@ function setClass () {
 }
 
 function addClasses () {
-  
-
+  $(".time-block").each(setClass);
 }
 
 function displayDate () {
   // TODO: Add code to display the current date in the header of the page.
- var presentDate = dayjs().
+ $("#currentDay").text(currentDate); //TODO not displaying
 }
 
 function getUserData () {
 
+  var saveUser = localStorage.getItem(timeId);
+  $(this).find(".description").val(saveUser);
 }
