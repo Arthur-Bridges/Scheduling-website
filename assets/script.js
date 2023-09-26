@@ -63,12 +63,11 @@ $(document).ready(function () {
 //get a handle
 var currentTime = dayjs().hour();
 var currentDate = dayjs().format('DD/MM/YYYY');
-var timeBlock = $(".time-block");
-var time = parseInt(timeBlock.split("-")[1]); //Number() does not work, parseInt?
+var time = parseInt(timeBlock.split("-")[1]); //Number() does not work, parseInt? Getting and undefined error
 
 function saveBtn () {
   $(".saveBtn").on("click", function() {
-
+    var timeBlock = $(this).siblings(".time-block").attr("id");
     var userInfo =  $(this).siblings(".description").val();
     localStorage.setItem(timeBlock, userInfo);
   });
@@ -91,7 +90,7 @@ function addClasses () {
 
 function displayDate () {
   // TODO: Add code to display the current date in the header of the page.
- $("#currentDay").text(currentDate); //TODO not displaying
+ $("#currentDay").text(currentDate); 
 }
 
 function getUserData () {
