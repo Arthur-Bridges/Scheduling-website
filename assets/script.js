@@ -2,37 +2,6 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
-/*
-1) create array and objects Days of the week and times.
-
-2) create for loop to go through each iteration of the day displaying the times.
-
-3) accessibility with upcoming, past and current times.
-
-4) color code those times.
-*/
-
-/*       **SYNTAX FOR OBJECTS USING DAYJS API**
-
-
-dayjs.extend(objectSupport)
-dayjs({ hour:15, minute:10 });
-dayjs.utc({ y:2010, M:3, d:5, h:15, m:10, s:3, ms: 123});
-dayjs({ year :2010, month :3, day :5, hour :15, minute :10, second :3, millisecond :123});
-dayjs({ years:2010, months:3, date:5, hours:15, minutes:10, seconds:3, milliseconds:123});
-
- */
-/*Things to get a handle on
-ID
-1)currentDay
-2)
- */
-/*
-CLASSES
-1)
-
-*/
 /*
 DOM TRAVERSAL(Maybe?)
 1) .children()
@@ -45,7 +14,6 @@ DOM TRAVERSAL(Maybe?)
 8) .each() 
 9) .parents()
 10) .find()
-
 */
 
 //Create functions then call it within the DOM.
@@ -95,14 +63,13 @@ $(document).ready(function () {
 //get a handle
 var currentTime = dayjs().hour();
 var currentDate = dayjs().format('DD/MM/YYYY');
-var description = $(".description");
-var timeId = $(this).attr("id");
-var time;
+var timeBlock = $(".time-block");
+var time = parseInt(timeBlock.split("-")[1]); //Number() does not work, parseInt?
 
 function saveBtn () {
   $(".saveBtn").on("click", function() {
-    var timeBlock = 
-    var userInfo =  description.val();
+
+    var userInfo =  $(this).siblings(".description").val();
     localStorage.setItem(timeBlock, userInfo);
   });
 }
@@ -110,7 +77,7 @@ function setClass () {
   if ( time < currentTime){
     $(this).addClass("past");
   }
-  if ( time === currentTime){
+  else if ( time === currentTime){
     $(this).addClass("present");
   }
   else {
@@ -128,7 +95,9 @@ function displayDate () {
 }
 
 function getUserData () {
-
+$(".time-block").each(function (){
+  var timeId = $(this).attr("id");
   var saveUser = localStorage.getItem(timeId);
   $(this).find(".description").val(saveUser);
+});
 }
